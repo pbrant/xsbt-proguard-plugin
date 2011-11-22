@@ -1,16 +1,14 @@
 ##Usage
 
-Requires [XSBT](http://github.com/harrah/xsbt/tree/0.9).
+Requires [XSBT](http://github.com/harrah/xsbt).
 
-Maven artifacts are created for 0.9.4, 0.9.6, 0.9.7, 0.9.8, 0.9.9, 0.9.10, 0.10.0 and 0.10.1 versions.
+Maven artifacts are created for 0.11.0 version.
 
 ###Adding the plugin to your build
 
-To use the plugin in a project, you need to create `project/plugins/build.sbt`:
+To use the plugin in a project, you need to create `project/plugins/build.sbt`(**since sonatype doesn't allow non standard maven layout we can't use `addSbtPlugin` here**):
 
-    resolvers += "Proguard plugin repo" at "http://siasia.github.com/maven2"
-
-    libraryDependencies <+= sbtVersion("com.github.siasia" %% "xsbt-proguard-plugin" % _)
+    libraryDependencies <+= sbtVersion(v => "com.github.siasia" %% "xsbt-proguard-plugin" % (v+"-0.1.1"))
 		
 This adds plugin version corresponding to your sbt version into your build.
 
